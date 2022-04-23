@@ -44,19 +44,23 @@ body {
 .top:before {
   transform: rotate(45deg);
   background: #e46569;
+  background-image: url('https://pbs.twimg.com/ext_tw_video_thumb/1504550211007533060/pu/img/1M24zMNCSMWjeMZJ.jpg');
 }
 .top:after {
   transform: rotate(135deg);
   background: #ecaf81;
+  background-image: url('https://panels-images.twitch.tv/panel-203261065-image-8a6730ea-b468-4ba9-a37e-469a503334a7');
 }
 
 .bottom:before {
   transform: rotate(-45deg);
   background: #60b8d4;
+  background-image: url('https://pbs.twimg.com/ext_tw_video_thumb/1505904232410628098/pu/img/aUq8r5zNqodn5fkO.jpg');
 }
 .bottom:after {
   transform: rotate(-135deg);
   background: #3745b5;
+  background-image: url('https://pbs.twimg.com/media/FOuU_m3WQAYhFP1?format=jpg&name=large');
 }
 
 .center {
@@ -86,3 +90,15 @@ body {
   font-family: inherit;
 }
 
+.login__title {
+  font-size: 30px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.login__input {
+  border-radius: 7px !important;
+}
+.login__input:last-of-type {
+  margin-bottom: 10px;
+}

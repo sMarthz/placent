@@ -4,8 +4,11 @@
   <meta charset="UTF-8">
   <title>Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel="stylesheet" href="css/login.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+  <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/utilities.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 
 </head>
 <body>
@@ -14,11 +17,11 @@
   <div class="top"></div>
   <div class="bottom"></div>
   <div class="center">
-    <h2>Please Sign In</h2>
-    <input type="email" placeholder="email" id="email"/>
-    <input type="password" placeholder="password" id="password"/>
+    <h2 class="login__title">Please Sign In</h2>
+    <input class="login__input" type="email" placeholder="email" id="email" autocomplete="off"/>
+    <input class="login__input" type="password" placeholder="password" id="password"/>
     
-    <button onclick="Login()">Log In</button>
+    <button class="btn btn-primary" onclick="Login()">Log In</button>
     
     <h2>&nbsp;</h2>
   </div>

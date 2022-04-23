@@ -1,96 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/utilities.css">
-    <script src="https://kit.fontawesome.com/7f75d0a41f.js" crossorigin="anonymous"></script>
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="css/login.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
 </head>
 <body>
-    <div class="main" id="main">
-        <!-- HEADER -->
-        <div class="header">
-            <div class="header__content">
-                <div class="header__logo flex-center">
-                    <h2>Placen't</h2>
-                </div>
-                <div class="header__user flex-center">
-                    <div class="user">
-                        <div class="user__picture" onclick="showUserModal()">
-                            <div class="picture__wrapper">
-                                <img class="picture__image" src="https://yt3.ggpht.com/yti/APfAmoHXS3DU4KahqnU2btoDdz-1WspWw0jtWvYIoLPQaw=s88-c-k-c0x00ffffff-no-rj-mo"/>
-                            </div>
-                        </div>
-                        <div class="user__info">
-                            <div class="info__name" id="user-name" onclick="showUserModal()">
-                                Luisito Comunica
-                            </div>
-                            <div class="info__stats">
-                                Estadísticas
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- BODY -->
-        <div class="body flex-center">
-            <canvas class="canvas" id="canvas"></canvas>
-        </div>
-        <!-- FOOTER -->
-        <div class="footer">
-            <div class="footer__content flex-center">
-                <div class="color__wrapper">
-                    <div class="color__selected">
-                        <div class="color__current" id="current-color"></div>
-                    </div>
-                    <div class="color__range">
-                        <p>Color actual: <span id="color-output">rgb(4,139,168)</span></p>
-                        <input type="range" class="color__range__item --red" id="range-red" value="4" min="0" max="255">
-                        <input type="range" class="color__range__item --green" id="range-green" value="139" min="0" max="255">
-                        <input type="range" class="color__range__item --blue" id="range-blue" value="168" min="0" max="255">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal__container flex-center --hidden" id="user-modal-container">
-        <div class="modal__background" id="user-modal-background" onclick="hideUserModal()"></div>
-        <div class="modal" id="user-modal">
-            <div class="modal__content">
-                <div class="user-modal__user-info">
-                    <div class="picture__wrapper --modal">
-                        <img class="picture__image" src="https://yt3.ggpht.com/yti/APfAmoHXS3DU4KahqnU2btoDdz-1WspWw0jtWvYIoLPQaw=s88-c-k-c0x00ffffff-no-rj-mo"/>
-                    </div>
-                    <div class="user-info__container">
-                        <div>
-                            <div class="user-info__name__container">
-                                <input class="user-info__name__text" id="user-name-editable" value="Luisito Comunica" disabled/>
-                                <span class="user-info__name__edit-btn" onclick="changeUserName()"><i class="fa-solid fa-pencil"></i></span>
-                            </div>
-                            <p>Nivel 30</p>
-                        </div>
-                        <div class="progress__container flex-center">
-                            <div class="progress__bar"></div>
-                            <span class="progress__text">83/1000 XP</span>
-                        </div>
+<!-- partial:index.partial.html -->
+<div class="container" onclick="onclick">
+  <div class="top"></div>
+  <div class="bottom"></div>
+  <div class="center">
+    <h2>Please Sign In</h2>
+    <input type="email" placeholder="email" id="email"/>
+    <input type="password" placeholder="password" id="password"/>
     
-                    </div>
-                </div>
+    <button onclick="Login()">Log In</button>
     
-                <button class="btn btn-primary" onclick="hideUserModal()">Aceptar</button>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.3/gsap.min.js" integrity="sha512-6zTDRWNxo8vI6JZYDCwhrJpg5icK3P4HNnW3czsO5Scb3lAoPDam+/wF3eog4hxcl0h44d0XlIcFkuoSaWHQ2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="js/login.js"></script>
-    <script src="js/color.js"></script>
-    <script src="js/anim.js"></script>
+    <h2>&nbsp;</h2>
+  </div>
+</div>
+<!-- partial -->
+  <script src="js/login.js"></script> 
+  <script src='https://codepen.io/banik/pen/ReNNrO/3f837b2f0085b5125112fc455941ea94.js'></script>
 </body>
 </html>
+

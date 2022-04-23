@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/utilities.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main" id="main">
+        <div class="header">
+            <div class="header__content">
+                <div class="header__logo flex-center">
+                    <h2>Placen't.io</h2>
+                </div>
+                <div class="header__user flex-center">
+                    <div class="user">
+                        <div class="user__picture" onclick="showUserModal()">
+                            <div class="picture__wrapper">
+                                <img class="picture__image" src="https://yt3.ggpht.com/yti/APfAmoHXS3DU4KahqnU2btoDdz-1WspWw0jtWvYIoLPQaw=s88-c-k-c0x00ffffff-no-rj-mo"/>
+                            </div>
+                        </div>
+                        <div class="user__info">
+                            <div class="info__name" id="user-name" onclick="showUserModal()">
+                                Luisito Comunica
+                            </div>
+                            <div class="info__stats">
+                                Estadísticas
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="body flex-center">
+            CANVAS
+        </div>
+        <div class="footer">
+            <div class="footer__content flex-center">
+                <div class="color__wrapper">
+                    <div class="color__selected">
+                        <div class="color__current" id="current-color"></div>
+                    </div>
+                    <div class="color__range">
+                        <p>Color actual: <span id="color-output">rgb(4,139,168)</span></p>
+                        <input type="range" class="color__range__item --red" id="range-red" value="4" min="0" max="255">
+                        <input type="range" class="color__range__item --green" id="range-green" value="139" min="0" max="255">
+                        <input type="range" class="color__range__item --blue" id="range-blue" value="168" min="0" max="255">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal__container flex-center --hidden" id="user-modal-container">
+        <div class="modal__background" id="user-modal-background"></div>
+        <div class="modal" id="user-modal">
+            <p>
+                Luisito Comunica
+            </p>
+            <p>
+                Nivel 30
+            </p>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.3/gsap.min.js" integrity="sha512-6zTDRWNxo8vI6JZYDCwhrJpg5icK3P4HNnW3czsO5Scb3lAoPDam+/wF3eog4hxcl0h44d0XlIcFkuoSaWHQ2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="js/login.js"></script>
+    <script src="js/color.js"></script>
+    <script src="js/anim.js"></script>
+</body>
+</html>

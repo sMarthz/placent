@@ -20,6 +20,11 @@ body {
   transform-origin: -200px 50%;
   transition-delay: 0s;
 }
+.container.--register:hover .top:before, .container.--register:hover .top:after, .container.--register:hover .bottom:before, .container.--register:hover .bottom:after, .container.--register:active .top:before, .container.--register:active .top:after, .container.--register:active .bottom:before, .container.--register:active .bottom:after {
+  margin-left: 250px;
+  transform-origin: -250px 50%;
+  transition-delay: 0s;
+}
 .container:hover .center, .container:active .center {
   opacity: 1;
   transition-delay: 0.2s;
@@ -44,23 +49,23 @@ body {
 .top:before {
   transform: rotate(45deg);
   background: #e46569;
-  background-image: url('https://pbs.twimg.com/ext_tw_video_thumb/1504550211007533060/pu/img/1M24zMNCSMWjeMZJ.jpg');
+  /* background-image: url('https://pbs.twimg.com/ext_tw_video_thumb/1504550211007533060/pu/img/1M24zMNCSMWjeMZJ.jpg'); */
 }
 .top:after {
   transform: rotate(135deg);
   background: #ecaf81;
-  background-image: url('https://panels-images.twitch.tv/panel-203261065-image-8a6730ea-b468-4ba9-a37e-469a503334a7');
+  /* background-image: url('https://panels-images.twitch.tv/panel-203261065-image-8a6730ea-b468-4ba9-a37e-469a503334a7'); */
 }
 
 .bottom:before {
   transform: rotate(-45deg);
   background: #60b8d4;
-  background-image: url('https://pbs.twimg.com/ext_tw_video_thumb/1505904232410628098/pu/img/aUq8r5zNqodn5fkO.jpg');
+  /* background-image: url('https://pbs.twimg.com/ext_tw_video_thumb/1505904232410628098/pu/img/aUq8r5zNqodn5fkO.jpg'); */
 }
 .bottom:after {
   transform: rotate(-135deg);
   background: #3745b5;
-  background-image: url('https://pbs.twimg.com/media/FOuU_m3WQAYhFP1?format=jpg&name=large');
+  /* background-image: url('https://pbs.twimg.com/media/FOuU_m3WQAYhFP1?format=jpg&name=large'); */
 }
 
 .center {
@@ -101,4 +106,24 @@ body {
 }
 .login__input:last-of-type {
   margin-bottom: 10px;
+}
+
+.sign-up__link {
+  margin-top: 10px;
+}
+.sign-up__link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+.center.login {
+  z-index: 1;
+}
+.center.register {
+  z-index: 0;
+}
+
+.center.login.opacity-0 {
+  z-index: -1;
 }

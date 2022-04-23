@@ -13,72 +13,55 @@
 </head>
 <body>
 <!-- partial:index.partial.html -->
-<div class="container" onclick="onclick">
+<div class="container" id="index-container">
   <div class="top"></div>
   <div class="bottom"></div>
-  <div class="center">
-    <h2 class="login__title">Please Sign Up</h2>
 
-    <input class="login__input" type="email" placeholder="email" id="email" autocomplete="off"/>
-    <input class="login__input" type="password" placeholder="password" id="password"/>  
+  <!-- INICIO SESION -->
+  <div class="center login" id="login-form">
+    <h2 class="login__title">Sign In</h2>
+
+    <input class="login__input login-input" type="email" placeholder="Email" id="email-login" autocomplete="off"/>
+    <input class="login__input login-input" type="password" placeholder="Password" id="password-login"/>
+    <button class="btn btn-primary" id="SignIn">Sign In</button>
+    <p class="sign-up__link" onclick="changeFormLayout()">Sign up for Placen't</p>
+    
+    <h2>&nbsp;</h2>
+  </div>
+
+  <!-- REGISTRO -->
+  <div class="center register opacity-0 pointer-events-none" id="register-form">
+    <h2 class="login__title">Sign Up</h2>
+
+    <input class="login__input register-input" type="email" placeholder="Email" id="email-register" autocomplete="off"/>
+    <input class="login__input register-input" type="password" placeholder="Password" id="password-register"/>  
+    <input class="login__input register-input" type="password" placeholder="Confirm password" id="password-register-confirm"/>  
     <button class="btn btn-primary" id="SignUp">Sign Up</button>
+    <p class="sign-up__link" onclick="changeFormLayout()">Sign in here</p>
     
     <h2>&nbsp;</h2>
   </div>
 </div>
+
+
+<div class="modal__container flex-center --hidden" id="error-popup">
+  <div class="modal__background" id="error-modal-background" onclick="hideErrorModal()"></div>
+  <div class="modal" id="error-modal">
+      <div class="modal__content">
+        <span id="error-message"></span>
+
+
+          <button class="btn btn-primary" id="error-modal-close">Aceptar</button>
+      </div>
+  </div>
+</div>
 <!-- partial -->
-  <script src="js/login.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.3/gsap.min.js" integrity="sha512-6zTDRWNxo8vI6JZYDCwhrJpg5icK3P4HNnW3czsO5Scb3lAoPDam+/wF3eog4hxcl0h44d0XlIcFkuoSaWHQ2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src='https://codepen.io/banik/pen/ReNNrO/3f837b2f0085b5125112fc455941ea94.js'></script>
+  <script src="js/login.js" type="module"></script> 
+  <script src="js/loginAnim.js"></script> 
 </body>
 
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
-  import { getDatabase } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-database.js";
-  import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";
-
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyDHgQavGR1MdB0sJSCj2tb6BTXQo5w9UYU",
-    authDomain: "placent-cc786.firebaseapp.com",
-    databaseURL: "https://placent-cc786-default-rtdb.firebaseio.com",
-    projectId: "placent-cc786",
-    storageBucket: "placent-cc786.appspot.com",
-    messagingSenderId: "281820495205",
-    appId: "1:281820495205:web:562cbf384e7fa3791e758c",
-    measurementId: "G-9GKKFJGXF9"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const database = getDatabase(app);
-  const auth = getAuth();
-
-  SignUp.addEventListener('click', (e) => {
-
-  var email = document.getElementById('email').value;
-  var password = document.getElementById('password').value;
-
-    createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in
-    const user = userCredential.user;
-    window.location="game.html"; 
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-
-    alert(errorMessage)
-    // ..
-  });
-  })
-</script>
 
 </html>
 

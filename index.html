@@ -7,14 +7,16 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/utilities.css">
+    <script src="https://kit.fontawesome.com/7f75d0a41f.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body>
     <div class="main" id="main">
+        <!-- HEADER -->
         <div class="header">
             <div class="header__content">
                 <div class="header__logo flex-center">
-                    <h2>Placen't.io</h2>
+                    <h2>Placen't</h2>
                 </div>
                 <div class="header__user flex-center">
                     <div class="user">
@@ -35,9 +37,11 @@
                 </div>
             </div>
         </div>
+        <!-- BODY -->
         <div class="body flex-center">
             <canvas class="canvas" id="canvas"></canvas>
         </div>
+        <!-- FOOTER -->
         <div class="footer">
             <div class="footer__content flex-center">
                 <div class="color__wrapper">
@@ -56,14 +60,31 @@
     </div>
 
     <div class="modal__container flex-center --hidden" id="user-modal-container">
-        <div class="modal__background" id="user-modal-background"></div>
+        <div class="modal__background" id="user-modal-background" onclick="hideUserModal()"></div>
         <div class="modal" id="user-modal">
-            <p>
-                Luisito Comunica
-            </p>
-            <p>
-                Nivel 30
-            </p>
+            <div class="modal__content">
+                <div class="user-modal__user-info">
+                    <div class="picture__wrapper --modal">
+                        <img class="picture__image" src="https://yt3.ggpht.com/yti/APfAmoHXS3DU4KahqnU2btoDdz-1WspWw0jtWvYIoLPQaw=s88-c-k-c0x00ffffff-no-rj-mo"/>
+                    </div>
+                    <div class="user-info__container">
+                        <div>
+                            <div class="user-info__name__container">
+                                <input class="user-info__name__text" id="user-name-editable" value="Luisito Comunica" disabled/>
+                                <span class="user-info__name__edit-btn" onclick="changeUserName()"><i class="fa-solid fa-pencil"></i></span>
+                            </div>
+                            <p>Nivel 30</p>
+                        </div>
+                        <div class="progress__container flex-center">
+                            <div class="progress__bar"></div>
+                            <span class="progress__text">83/1000 XP</span>
+                        </div>
+    
+                    </div>
+                </div>
+    
+                <button class="btn btn-primary" onclick="hideUserModal()">Aceptar</button>
+            </div>
         </div>
     </div>
 

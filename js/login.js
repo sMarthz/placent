@@ -25,7 +25,10 @@ const firebaseConfig = {
  const auth = getAuth();
 
  const SignUp = document.getElementById("SignUp");
+ const SignIn = document.getElementById("SignIn");
+ const SignOut = document.getElementById("SignOut");
 
+ if(SignUp)
  SignUp.addEventListener('click',(e) => {
 
  var emailRegister = document.getElementById('email-register').value;
@@ -53,7 +56,7 @@ const firebaseConfig = {
 
 });
 
-
+if(SignIn)
 SignIn.addEventListener('click',(e)=>{
   var emailLogin = document.getElementById('email-login').value;
   var passwordLogin = document.getElementById('password-login').value;
@@ -78,7 +81,7 @@ SignIn.addEventListener('click',(e)=>{
 const user = auth.currentUser;
 
 
-  
+if(SignOut)
 SignOut.addEventListener('click',(e)=>{
   console.log("djsaik");
   const user = userCredential.user;
@@ -106,9 +109,11 @@ const modalContainer = document.getElementById("error-popup");
 const modalBackground = document.getElementById("error-modal-background");
 const modal = document.getElementById("error-modal");
 const errorMsg = document.getElementById("error-message");
+const modalClose = document.getElementById("error-modal-close");
 let animSpeed = .2;
 
-document.getElementById("error-modal-close").addEventListener("click", function() {
+if(modalClose)
+modalClose.addEventListener("click", function() {
   gsap.fromTo(modal, {y: 0, opacity: 1}, {duration: animSpeed, y: 20, opacity: 0, onComplete: () => {
       modalContainer.classList.add('--hidden');
   }});

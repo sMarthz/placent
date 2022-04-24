@@ -41,7 +41,6 @@ const firebaseConfig = {
     // Signed in 
      const user = userCredential.user;
 
-     
      window.location="game.html"; 
      alert('user created!');
      // ...
@@ -83,8 +82,6 @@ const user = auth.currentUser;
 
 if(SignOut)
 SignOut.addEventListener('click',(e)=>{
-  console.log("djsaik");
-  const user = userCredential.user;
   signOut(auth).then(() => {
     // Sign-out successful.
     window.location="index.html"; 

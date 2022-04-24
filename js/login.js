@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
-import { getDatabase } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-database.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";
+import { getDatabase, set, ref} from "https://www.gstatic.com/firebasejs/9.6.11/firebase-database.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut  } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -19,58 +19,88 @@ const firebaseConfig = {
   measurementId: "G-9GKKFJGXF9"
 };
 
-let errorTexto = "";
+ // Initialize Firebase
+ const app = initializeApp(firebaseConfig);
+ const database = getDatabase(app);
+ const auth = getAuth();
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
-const auth = getAuth();
+ const SignUp = document.getElementById("SignUp");
 
-const SignUp = document.getElementById("SignUp");
+ SignUp.addEventListener('click',(e) => {
 
-const emailRegister =  document.getElementById('email-register');
-const passwordRegister = document.getElementById('password-register');
-const passwordRegisterConfirm = document.getElementById('password-register-confirm')
+ var emailRegister = document.getElementById('email-register').value;
+ var passwordRegister = document.getElementById('password-register').value;
+ var passwordRegisterConfirm = document.getElementById('password-register-confirm').value;
 
-SignUp.addEventListener('click', () => {
-  checkCredentials();
-})
 
-emailRegister.addEventListener("keyup", function(e){if (e.keyCode == "13") {checkCredentials()}})
-passwordRegister.addEventListener("keyup", function(e){if (e.keyCode == "13") {checkCredentials()}})
-passwordRegisterConfirm.addEventListener("keyup", function(e){if (e.keyCode == "13") {checkCredentials()}})
+ createUserWithEmailAndPassword(auth, emailRegister, passwordRegister)
+   .then((userCredential) => {
+    // Signed in 
+     const user = userCredential.user;
 
-function checkCredentials() {
-  var passwordRegisterValue = passwordRegister.value;
-  var passwordRegisterConfirmValue = passwordRegisterConfirm.value;
+     
+     window.location="game.html"; 
+     alert('user created!');
+     // ...
+   })
+   .catch((error) => {
+     const errorCode = error.code;
+     const errorMessage = error.message;
 
-  if (passwordRegisterValue && passwordRegisterConfirmValue && passwordRegisterValue == passwordRegisterConfirmValue) {
-    createAccount();
-  } else if (!passwordRegisterValue) {
-    // Las contraseñas no coinciden
-    errorTexto = "Please enter a password"
-    showErrorModal();
-  } else if (!(passwordRegisterValue == passwordRegisterConfirmValue)) {
-    errorTexto = "Please make sure your passwords match"
-    showErrorModal();
-  }
-}
+     alert(errorMessage);
+   // ..
+   });
 
-function createAccount() {
-  var emailRegisterValue = emailRegister.value;
-  var passwordRegisterValue = passwordRegister.value;
-  var passwordRegisterConfirmValue = passwordRegisterConfirm.value;
-  createUserWithEmailAndPassword(auth, emailRegisterValue, passwordRegisterValue)
-  .then((userCredential) => {
-    // Signed in
-    const user = userCredential.user;
-    window.location="game.html"; 
-  })
-  .catch((error) => {
-    errorTexto = "Please enter a valid email"
-    showErrorModal();
+});
+
+
+SignIn.addEventListener('click',(e)=>{
+  var emailLogin = document.getElementById('email-login').value;
+  var passwordLogin = document.getElementById('password-login').value;
+
+     signInWithEmailAndPassword(auth, emailLogin, passwordLogin)
+     .then((userCredential) => {
+       // Signed in 
+       
+       window.location="game.html";
+       const user = userCredential.user;
+        alert('User loged in!');
+       // ...
+     })
+     .catch((error) => {
+       const errorCode = error.code;
+       const errorMessage = error.message;
+
+       alert(errorMessage);
+ });
+
+});
+const user = auth.currentUser;
+
+
+  
+SignOut.addEventListener('click',(e)=>{
+  console.log("djsaik");
+  const user = userCredential.user;
+  signOut(auth).then(() => {
+    // Sign-out successful.
+    window.location="index.html"; 
+    alert('user loged out');
+  }).catch((error) => {
+    // An error happened.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+
+       alert(errorMessage);
   });
-}
+
+  });
+
+
+
+
+
+
 
 const modalContainer = document.getElementById("error-popup");
 const modalBackground = document.getElementById("error-modal-background");

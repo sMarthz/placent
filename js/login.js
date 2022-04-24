@@ -1,7 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
 import { getDatabase, set, ref} from "https://www.gstatic.com/firebasejs/9.6.11/firebase-database.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut  } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, GoogleAuthProvider, signInWithPopup} from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";
+
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -22,12 +23,44 @@ const firebaseConfig = {
  // Initialize Firebase
  const app = initializeApp(firebaseConfig);
  const database = getDatabase(app);
- const auth = getAuth();
+ const auth = getAuth(app);
+ const provider = new GoogleAuthProvider(app);
 
  const SignUp = document.getElementById("SignUp");
  const SignIn = document.getElementById("SignIn");
  const SignOut = document.getElementById("SignOut");
+ const SignInGoogle = document.getElementById("SignInGoogle");
 
+
+
+ if(SignInGoogle)
+SignInGoogle.addEventListener('click',(e) => {
+// sign in with popup tab
+signInWithPopup(auth, provider)
+ .then((result) => {
+   // This gives you a Google Access Token. You can use it to access the Google API.
+   const credential = GoogleAuthProvider.credentialFromResult(result);
+   const token = credential.accessToken;
+   // The signed-in user info.
+   const user = result.user;
+   window.location="game.html"; 
+
+   alert(user.displayName);
+   // ...
+ }).catch((error) => {
+   // Handle Errors here.
+   const errorCode = error.code;
+   const errorMessage = error.message;
+   // The email of the user's account used.
+   const email = error.email;
+   // The AuthCredential type that was used.
+   const credential = GoogleAuthProvider.credentialFromError(error);
+   // ...
+
+ });
+});
+
+  
  if(SignUp)
  SignUp.addEventListener('click',(e) => {
 
@@ -95,11 +128,6 @@ SignOut.addEventListener('click',(e)=>{
   });
 
   });
-
-
-
-
-
 
 
 const modalContainer = document.getElementById("error-popup");

@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
 import { getDatabase, set, ref} from "https://www.gstatic.com/firebasejs/9.6.11/firebase-database.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, GoogleAuthProvider, signInWithPopup, TwitterAuthProvider} from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, GoogleAuthProvider, signInWithPopup, TwitterAuthProvider,  sendEmailVerification} from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";
 
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -35,6 +35,11 @@ const firebaseConfig = {
  const SignInGoogle = document.getElementById("SignInGoogle");
  const SignInTwitter = document.getElementById("SignInTwitter");
 
+ let isEmailVerified = false;
+
+
+
+
  if(SignInTwitter)
  SignInTwitter.addEventListener('click',(e) => { 
   
@@ -42,7 +47,7 @@ const firebaseConfig = {
    .then((result) => {
      // This gives you a the Twitter OAuth 1.0 Access Token and Secret.
      // You can use these server side with your app's credentials to access the Twitter API.
-     console.log("ronejas");
+    
      const credential = TwitterAuthProvider.credentialFromResult(result);
      const token = credential.accessToken;
      const secret = credential.secret;
@@ -130,14 +135,14 @@ signInWithPopup(auth, providerGoogle)
  var passwordRegister = document.getElementById('password-register').value;
  var passwordRegisterConfirm = document.getElementById('password-register-confirm').value;
 
+  
+ createUserWithEmailAndPassword(auth, emailRegister, passwordRegister).then((userCredential) => {
+    
+  sendEmailVerification(auth.currentUser).then(() => {
+    isEmailVerified = true;
+    alert('Email Sent!');
+  });
 
- createUserWithEmailAndPassword(auth, emailRegister, passwordRegister)
-   .then((userCredential) => {
-    // Signed in 
-     const user = userCredential.user;
-
-     window.location="game.html"; 
-     alert('user created!');
      // ...
    })
    .catch((error) => {
@@ -151,6 +156,8 @@ signInWithPopup(auth, providerGoogle)
 });
 
 
+
+
 if(SignIn)
 SignIn.addEventListener('click',(e)=>{
   var emailLogin = document.getElementById('email-login').value;
@@ -159,10 +166,14 @@ SignIn.addEventListener('click',(e)=>{
      signInWithEmailAndPassword(auth, emailLogin, passwordLogin)
      .then((userCredential) => {
        // Signed in 
-       
-       window.location="game.html";
+      
+       if(isEmailVerified == true) {
        const user = userCredential.user;
+       window.location="game.html";
         alert('User loged in!');
+       } else { 
+         console.log("ronejas")
+       }
        // ...
      })
      .catch((error) => {

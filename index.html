@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/utilities.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+  <script src="https://kit.fontawesome.com/7f75d0a41f.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -24,8 +25,10 @@
     <input class="login__input login-input" type="email" placeholder="Email" id="email-login" autocomplete="off"/>
     <input class="login__input login-input" type="password" placeholder="Password" id="password-login"/>
     <button class="btn btn-primary" id="SignIn">Sign In</button>
-    
-    <button class="btn" id="SignInGoogle">Sign in with Google</button>
+    <div class="btn-container margin-top-10">
+      <button class="btn btn-google" id="SignInGoogle"><i class="fa-brands fa-google"></i></button>
+      <button class="btn btn-facebook" id="SignInGoogle"><i class="fa-brands fa-facebook-f"></i></button>
+    </div>
   <!--<button class="btn" id="SignInTwitter">Sign in with Twitter</button> -->
     <p class="sign-up__link" onclick="changeFormLayout()">Sign up for Placen't</p>
     
@@ -40,7 +43,11 @@
     <input class="login__input register-input" type="password" placeholder="Password" id="password-register"/>  
     <input class="login__input register-input" type="password" placeholder="Confirm password" id="password-register-confirm"/>  
     <button class="btn btn-primary" id="SignUp">Sign Up</button>
-    
+    <div class="btn-container margin-top-10">
+      <button class="btn btn-google" id="SignUpGoogle"><i class="fa-brands fa-google"></i></button>
+      <button class="btn btn-facebook" id="SignUpGoogle"><i class="fa-brands fa-facebook-f"></i></button>
+    </div>
+
     <p class="sign-up__link" onclick="changeFormLayout()">Sign in here</p>
     
     <h2>&nbsp;</h2>

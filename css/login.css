@@ -16,13 +16,13 @@ body {
 }
 
 .container:hover .top:before, .container:hover .top:after, .container:hover .bottom:before, .container:hover .bottom:after, .container:active .top:before, .container:active .top:after, .container:active .bottom:before, .container:active .bottom:after {
-  margin-left: 220px;
-  transform-origin: -220px 50%;
+  margin-left: 230px;
+  transform-origin: -230px 50%;
   transition-delay: 0s;
 }
 .container.--register:hover .top:before, .container.--register:hover .top:after, .container.--register:hover .bottom:before, .container.--register:hover .bottom:after, .container.--register:active .top:before, .container.--register:active .top:after, .container.--register:active .bottom:before, .container.--register:active .bottom:after {
-  margin-left: 250px;
-  transform-origin: -250px 50%;
+  margin-left: 260px;
+  transform-origin: -260px 50%;
   transition-delay: 0s;
 }
 .container:hover .center, .container:active .center {

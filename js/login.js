@@ -37,7 +37,7 @@ const firebaseConfig = {
 
  let isEmailVerified = false;
 
-
+ let errorTexto = "";
 
 
  if(SignInTwitter)
@@ -146,10 +146,7 @@ signInWithPopup(auth, providerGoogle)
      // ...
    })
    .catch((error) => {
-     const errorCode = error.code;
-     const errorMessage = error.message;
-
-     alert(errorMessage);
+    showErrorModal(error.message)
    // ..
    });
 
@@ -177,10 +174,7 @@ SignIn.addEventListener('click',(e)=>{
        // ...
      })
      .catch((error) => {
-       const errorCode = error.code;
-       const errorMessage = error.message;
-
-       alert(errorMessage);
+      showErrorModal(error.message)
  });
 
 });
@@ -195,10 +189,7 @@ SignOut.addEventListener('click',(e)=>{
     alert('user loged out');
   }).catch((error) => {
     // An error happened.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-
-       alert(errorMessage);
+    showErrorModal(error.message)
   });
 
   });
@@ -222,8 +213,8 @@ modalClose.addEventListener("click", function() {
   //passwordRegisterConfirm.value = "";
 })
 
-function showErrorModal() {
-  errorMsg.innerHTML = errorTexto;
+function showErrorModal(textoError) {
+  errorMsg.innerHTML = textoError;
   modalContainer.classList.remove('--hidden');
   gsap.fromTo(modal, {y: 20, opacity: 0}, {duration: animSpeed, y: 0, opacity: 1});
   gsap.to(modalBackground, {duration: animSpeed, backgroundColor: "rgba(0, 0, 0, 0.5)"})

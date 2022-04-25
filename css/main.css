@@ -307,19 +307,30 @@
     border-radius: 7px;
     font-size: 20px;
     width: 100%;
+    line-height: 1.5;
+    color: var(--font-color-light);
 }
 
 .btn.btn-primary {
     background-color: var(--main-color);
-    color: var(--font-color-light);
-    line-height: 1.5;
 }
 .btn.btn-primary:hover {
     background-color: var(--main-color-hover);
 }
 
+.btn-google {
+    background-color: rgb(219,68,55);
+}
+.btn-facebook {
+    background-color: rgb(59,89,152);
+}
 
-
+.btn-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+}
 
 
 /*

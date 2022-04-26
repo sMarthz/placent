@@ -15,8 +15,6 @@ body{
 }
 
 .navbar{
-    padding: 1em;
-    margin-bottom: 1em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,16 +30,13 @@ body{
 }
 
 .container{
-    --size: 4;
-    height: 800px;
+    --size: 170;
+    height: 100%;
     display: grid;
     grid-template-columns: repeat(var(--size), 1fr);
     grid-template-rows: repeat(var(--size), 1fr);
- 
-    padding: 3px;
 }
 .pixel{
     background-color: rgb(61, 61, 61);
- 
-    
+    aspect-ratio: 1;
 }

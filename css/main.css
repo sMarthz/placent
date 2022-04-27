@@ -110,7 +110,7 @@
     width: 100%;
     height: inherit;
     height: -webkit-fill-available;
-    background-color: rgb(255, 218, 149);
+    background-color: rgb(255, 255, 255);
     overflow: hidden;
 }
 

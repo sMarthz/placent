@@ -164,13 +164,11 @@ SignIn.addEventListener('click',(e)=>{
      .then((userCredential) => {
        // Signed in 
       
-       if(isEmailVerified == true) {
+     
        const user = userCredential.user;
        window.location="game.html";
         alert('User loged in!');
-       } else { 
-         console.log("ronejas")
-       }
+       
        // ...
      })
      .catch((error) => {
